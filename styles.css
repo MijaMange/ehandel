@@ -1,4 +1,4 @@
-/* General Styles */
+/* Allmänna stilar */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,124 +10,193 @@ body {
 /* Top Header */
 #top-header {
     background-color: #090a0a;
-    padding: 10px;
-    text-align: center;
+    padding: 10px 20px;
     font-size: 14px;
     border-bottom: 1px solid #ddd;
-}
-#top-header a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #fdfdfd;
+    display: flex;
+    align-items: center;
 }
 
-/* Search Bar */
+#top-header a {
+    text-decoration: none;
+    color: #fdfdfd;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#top-header a i {
+    margin-right: 8px;
+}
+
+#top-header a:hover {
+    font-weight: bold;
+}
+
+/* Sökfält */
 .search-bar {
     padding: 15px;
-    background-color: hsl(0, 18%, 92%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #eceaeb;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #ddd;
 }
-.search-bar h1 {
-    margin: 0;
-    font-size: 24px;
+
+.search-bar img {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.search-bar img:hover {
+    transform: scale(1.1);
+}
+
 .search-bar .input-group {
     flex: 1;
     margin: 0 20px;
+    display: flex;
 }
-.search-bar .cart-link {
+
+.search-bar input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    padding: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+}
+
+.search-bar button {
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+.search-bar .cart-link,
+.search-bar .like-link {
     text-decoration: none;
     color: #007bff;
     font-size: 16px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
-.search-bar .cart-link i {
+
+.search-bar .cart-link i,
+.search-bar .like-link i {
     margin-right: 8px;
 }
-.search-bar .cart-link:hover {
-    color: #0056b3;
+
+.search-bar .cart-link:hover,
+.search-bar .like-link:hover {
+    font-weight: bold;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #f1f1f1;
-    padding: 10px;
-    margin: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 10px;
-    margin: 20px;
-    padding: 0px;
-}
-.nav-menu a {
-    text-decoration: none;
-    color: #3f9b49;
-}
-
-.nav-menu :hover {
- font-weight: bold;
-}
-
-
-/* Content Wrapper */
-#content-wrapper {
+/* Reklamsektion */
+#advertisement {
     display: flex;
     gap: 20px;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
-/* Product Grid */
+.ad-container {
+    flex: 1;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ad-container:hover {
+    transform: scale(1.05);
+}
+
+.ad-container img {
+    width: 100%;
+    height: auto;
+    object-fit: fit;
+}
+
+/* Produktcontainer */
 #product-grid {
-    flex: 3;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-#product-grid h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    
-}
 
-/* Product Container */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(300px, auto);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
 }
+
+/* Produktkort */
 .product-item {
+    position: relative;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .product-item:hover {
     transform: scale(1.05);
-    font-weight: bold;
-    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+.product-item .like-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.product-item .like-button:hover {
+    color: #b81255;
+    transform: scale(1.2);
+}
+
 .product-item img {
     width: 100%;
     max-height: 150px;
     object-fit: contain;
     margin-bottom: 10px;
 }
+
 .product-item span {
     display: block;
     margin: 5px 0;
@@ -135,70 +204,93 @@ body {
     color: #333;
 }
 
-/* Campaigns */
-/* Campaigns */
-#campaigns {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.campaign {
-    flex: 1;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.campaign img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.campaign-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+.product-item button {
+    background-color: #007bff;
     color: #fff;
+    border: none;
+    border-radius: 5px;
     padding: 10px;
-    text-align: center;
-}
-
-.campaign-text h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.campaign-text p {
-    margin: 5px 0 0;
     font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
+.product-item button:hover {
+    background-color: #0056b3;
+}
 
 /* Footer */
 footer {
-    background-color: #000000;
+    background-color: #000;
     color: #fff;
     padding: 20px;
     text-align: center;
 }
-.footer-content a {
-    color: #007bff;
-    text-decoration: none;
-}
-.footer-content a:hover {
-    text-decoration: underline;
+/* CSS: Styla nav-baren */
+.navbar {
+    background-color: #f1f1f1;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
 }
 
-.webshop-logo {
-    width: 300px; /* Anpassa loggans bredd */
-    height: auto; /* Bevara proportionerna */
-    margin-right: 20px; /* Lägg till utrymme mellan loggan och sökfältet */
-    object-fit: contain; /* Anpassa loggan inom ramen */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.nav-menu a:hover {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+/* Övriga stilar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Top Header */
+#top-header {
+    background-color: #090a0a;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+#top-header a {
+    text-decoration: none;
+    color: #fdfdfd;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#top-header a i {
+    margin-right: 8px;
+}
+
+#top-header a:hover {
+    font-weight: bold;
 }
